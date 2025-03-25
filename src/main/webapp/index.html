@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Expense Tracker</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <div class="header" style="font-size: 2rem; font-weight: bold; margin-top: 2rem">
+        Daily Expense Tracker
+    </div>
+    <div class="container">
+        <form class="expense-form" action="BackendServlet" method="post">
+            <input type="number" id="amount" placeholder="Enter Amount" required name="expenseAmount" />
+            <select id="category" name="expenseCategory">
+                <option value="" disabled selected>Select Category</option>
+                <option value="Food">Food</option>
+                <option value="Travel">Travel</option>
+                <option value="Shopping">Shopping</option>
+                <option value="Bills">Bills</option>
+                <option value="Others">Others</option>
+            </select>
+            <input type="date" id="date" placeholder="Enter Date" required name="expenseDate" />
+            <input type="text" id="description" placeholder="Enter Description" name="expenseDescription" />
+            <button>Add Expense</button>
+        </form>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            let dateInput = document.getElementById("date");
+            let today = new Date().toISOString().split("T")[0];
+            dateInput.setAttribute("max", today);
+
+            document
+                .querySelector("form")
+                .addEventListener("submit", function (event) {
+                    if (dateInput.value > today) {
+                        alert("Future dates are not allowed!");
+                        event.preventDefault();
+                    }
+                });
+        });
+    </script>
+</body>
+
+</html>
