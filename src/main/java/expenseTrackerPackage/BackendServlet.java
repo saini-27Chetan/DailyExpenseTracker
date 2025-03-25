@@ -12,7 +12,7 @@ import java.util.ArrayList;
 @SuppressWarnings("unused")
 public class BackendServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
-    private static final String FILE_PATH = "C:\\Users\\CHETAN\\Downloads\\TomcatServer\\apache-tomcat-10.1.24\\webapps\\expenses.txt";
+    private static final String FILE_PATH = ""; // Enter the text file location where you need to save the expenses.
     private static ArrayList<Expense> expenseList = new ArrayList<>();
 
     @Override
